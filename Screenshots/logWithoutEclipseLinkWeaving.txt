@@ -1,0 +1,25 @@
+﻿[EL Info]: 2557-10-22 09:55:03.365--ServerSession(8268900)--EclipseLink, version: Eclipse Persistence Services - 2.5.1.v20130918-f2b9fc5
+[EL Warning]: metadata: 2557-10-22 09:55:03.661--ServerSession(8268900)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [artist] for the entity class [class myjpa.relation.one2many.Song] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2557-10-22 09:55:03.661--ServerSession(8268900)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [stockDetail] for the entity class [class myjpa.relation.one2one.Stock] since weaving was not enabled or did not occur.
+[EL Info]: connection: 2557-10-22 09:55:03.723--ServerSession(8268900)--file:/C:/Users/com/Desktop/MyJPA/Projects/Relation/build/classes/_RelationPU login successful
+[EL Fine]: sql: 2557-10-22 09:55:03.755--ServerSession(8268900)--Connection(1741007954)--SELECT ID FROM STOCK WHERE ID <> ID
+[EL Fine]: sql: 2557-10-22 09:55:03.786--ServerSession(8268900)--Connection(1741007954)--SELECT ID FROM STOCKDETAIL WHERE ID <> ID
+[EL Fine]: sql: 2557-10-22 09:55:03.786--ServerSession(8268900)--Connection(1741007954)--SELECT ID FROM ARTIST WHERE ID <> ID
+[EL Fine]: sql: 2557-10-22 09:55:03.786--ServerSession(8268900)--Connection(1741007954)--SELECT ID FROM SONG WHERE ID <> ID
+[EL Fine]: sql: 2557-10-22 09:55:03.786--ServerSession(8268900)--Connection(1741007954)--SELECT ID FROM ACTOR WHERE ID <> ID
+[EL Fine]: sql: 2557-10-22 09:55:03.786--ServerSession(8268900)--Connection(1741007954)--SELECT ID FROM MOVIE WHERE ID <> ID
+[EL Fine]: sql: 2557-10-22 09:55:03.801--ServerSession(8268900)--Connection(1741007954)--SELECT movie_id FROM actor_movie WHERE movie_id <> movie_id
+[EL Fine]: sql: 2557-10-22 09:55:04.02--ServerSession(8268900)--Connection(1741007954)--SELECT ID, CODE, NAME FROM STOCK
+[EL Fine]: sql: 2557-10-22 09:55:04.02--ServerSession(8268900)--Connection(1741007954)--SELECT ID, COMPANYDESCRIPTION, COMPANYNAME FROM STOCKDETAIL WHERE (ID = ?)
+	bind => [1 parameter bound]
+[EL Fine]: sql: 2557-10-22 09:55:04.035--ServerSession(8268900)--Connection(1741007954)--SELECT ID, COMPANYDESCRIPTION, COMPANYNAME FROM STOCKDETAIL WHERE (ID = ?)
+	bind => [1 parameter bound]
+[EL Fine]: sql: 2557-10-22 09:55:04.035--ServerSession(8268900)--Connection(1741007954)--SELECT ID, COMPANYDESCRIPTION, COMPANYNAME FROM STOCKDETAIL WHERE (ID = ?)
+	bind => [1 parameter bound]
+[EL Fine]: sql: 2557-10-22 09:55:04.035--ServerSession(8268900)--Connection(1741007954)--SELECT ID, COMPANYDESCRIPTION, COMPANYNAME FROM STOCKDETAIL WHERE (ID = ?)
+	bind => [1 parameter bound]
+Stock{id=1, code=ABC7, name=Food}
+Stock{id=2, code=ABC7, name=Food}
+Stock{id=3, code=ABC7, name=Food}
+Stock{id=4, code=ABC7, name=Food}
+BUILD SUCCESSFUL (total time: 1 second)

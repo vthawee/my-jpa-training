@@ -1,0 +1,15 @@
+[EL Info]: 2557-10-22 10:01:37.473--ServerSession(1640244246)--EclipseLink, version: Eclipse Persistence Services - 2.5.1.v20130918-f2b9fc5
+[EL Info]: connection: 2557-10-22 10:01:37.816--ServerSession(1640244246)--RelationPU login successful
+[EL Fine]: sql: 2557-10-22 10:01:37.831--ServerSession(1640244246)--Connection(765329253)--SELECT ID FROM STOCK WHERE ID <> ID
+[EL Fine]: sql: 2557-10-22 10:01:37.847--ServerSession(1640244246)--Connection(765329253)--SELECT ID FROM STOCKDETAIL WHERE ID <> ID
+[EL Fine]: sql: 2557-10-22 10:01:37.847--ServerSession(1640244246)--Connection(765329253)--SELECT ID FROM ARTIST WHERE ID <> ID
+[EL Fine]: sql: 2557-10-22 10:01:37.847--ServerSession(1640244246)--Connection(765329253)--SELECT ID FROM SONG WHERE ID <> ID
+[EL Fine]: sql: 2557-10-22 10:01:37.847--ServerSession(1640244246)--Connection(765329253)--SELECT ID FROM ACTOR WHERE ID <> ID
+[EL Fine]: sql: 2557-10-22 10:01:37.863--ServerSession(1640244246)--Connection(765329253)--SELECT ID FROM MOVIE WHERE ID <> ID
+[EL Fine]: sql: 2557-10-22 10:01:37.863--ServerSession(1640244246)--Connection(765329253)--SELECT movie_id FROM actor_movie WHERE movie_id <> movie_id
+[EL Fine]: sql: 2557-10-22 10:01:38.081--ServerSession(1640244246)--Connection(765329253)--SELECT ID, CODE, NAME FROM STOCK
+Stock{id=1, code=ABC7, name=Food}
+Stock{id=2, code=ABC7, name=Food}
+Stock{id=3, code=ABC7, name=Food}
+Stock{id=4, code=ABC7, name=Food}
+BUILD SUCCESSFUL (total time: 2 seconds)
