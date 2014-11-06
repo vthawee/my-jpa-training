@@ -1,0 +1,67 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:batch="http://www.springframework.org/schema/batch" 
+       xsi:schemaLocation
+        ="http://www.springframework.org/schema/beans 
+          http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+          http://www.springframework.org/schema/batch 
+          http://www.springframework.org/schema/batch/spring-batch-2.2.xsd">
+
+  <!-- JPA -->
+  <bean id="dataSource"
+        class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName" value="com.mysql.jdbc.Driver" /> 
+    <property name="url" value="jdbc:mysql://localhost:3306/myjpa" /> 
+    <property name="username" value="root" /> 
+    <property name="password" value="123" /> 
+  </bean>
+
+  <bean id="entityManagerFactory"
+        class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+    <property name="persistenceUnitName" value="SpringBatchPU" />
+    <property name="dataSource" ref="dataSource" />
+    <property name="jpaPropertyMap">
+      <map>
+        <entry key="eclipselink.weaving" value="false" />
+      </map>
+    </property>
+  </bean>
+
+  <bean id="transactionManager"
+        class="org.springframework.orm.jpa.JpaTransactionManager">
+    <property name="entityManagerFactory" ref="entityManagerFactory" />
+  </bean>
+
+  <!-- Job Repository -->
+	<bean id="jobRepository"
+        class="org.springframework.batch.core.repository.support.MapJobRepositoryFactoryBean">
+    <property name="transactionManager" ref="transactionManager" />
+    <property name="isolationLevelForCreate" value="ISOLATION_DEFAULT"/>
+  </bean>
+ 	
+	<bean id="jobLauncher"
+        class="org.springframework.batch.core.launch.support.SimpleJobLauncher">
+    <property name="jobRepository" ref="jobRepository" />
+  </bean>
+
+  <!-- Job -->
+	<bean id="userJpaItemReader" class="myjpa.springbatch.jpa_xml.UserJpaItemReader" 
+        scope="step">
+    <property name="EntityManagerFactory" ref="entityManagerFactory" />
+    <property name="queryString" 
+              value="SELECT u FROM User AS u WHERE u.id >= #{jobParameters['id']}" />
+  </bean>
+  <bean id="userXmlItemWriter" class="myjpa.springbatch.jpa_xml.UserXmlItemWriter" />
+  
+	<batch:job id="jpaXmlJob">
+		<batch:step id="step1">
+			<batch:tasklet>
+				<batch:chunk 
+          reader="userJpaItemReader" 
+          writer="userXmlItemWriter"
+					commit-interval="2" />
+			</batch:tasklet>
+		</batch:step>
+	</batch:job>
+  
+</beans>
