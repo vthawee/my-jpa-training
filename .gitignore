@@ -1,2 +1,6 @@
 #ignore lib
 *.jar
+
+# ignore build
+build/
+dist/
