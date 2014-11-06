@@ -1,0 +1,12 @@
+MVC
+===
+
+Model - JPA
+
+Control - Connect between Model View
+        - Servlet
+	- Java Class, URL Mapping
+
+View - Show, Input User
+     - JSP, Custom Tag
+

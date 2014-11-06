@@ -1,0 +1,17 @@
+                         T1          T2
+synchronized (c) {
+  int temp = c;          0           0
+
+  Thread.sleep(5000);
+
+  c = temp+1;            1           1
+}
+
+
+
+      em      em
+      L1      L1
+
+         L2
+
+	 DB
